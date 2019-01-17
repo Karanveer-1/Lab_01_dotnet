@@ -1,0 +1,18 @@
+﻿@model String[]
+
+@{
+    ViewData["Title"] = "Files";
+    ViewData["Message"] = "Following are the files in the TextFiles directory:";
+}
+
+<div>
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p>@ViewData["Message"]</p>
+
+    <ul>
+        @foreach (var file in Model) {
+            <li>@Html.ActionLink(System.IO.Path.GetFileName(file), "Content", null, new {id = System.IO.Path.GetFileName(file)} )</li>
+        }
+    </ul>
+    
+</div>
